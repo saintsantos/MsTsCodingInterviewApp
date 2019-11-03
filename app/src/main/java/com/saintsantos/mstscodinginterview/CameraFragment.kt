@@ -18,6 +18,7 @@ class CameraFragment: CameraPermissionFragment() {
     lateinit var viewFinder: TextureView
 
     private val photoList = mutableListOf<String>()
+    private lateinit var compilationViewModel: PhotoViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_camera, container, false)
@@ -25,6 +26,7 @@ class CameraFragment: CameraPermissionFragment() {
         viewFinder.addOnLayoutChangeListener { _, _, _, _, _, _, _, _, _ ->
             updateTransform()
         }
+        compilationViewModel = PhotoViewModel()
         return view
     }
 
